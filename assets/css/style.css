@@ -1,3 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+header {
+    height: 80%;
+    font-size: 4rem;
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+
+#search-history {
+    display: flex;
+    flex-direction: row;
+}
+
 .holder{
     display: flex
+}
+
+#current-weather {
+    border: 2px solid black;
 }
