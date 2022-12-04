@@ -1,23 +1,57 @@
 * {
     box-sizing: border-box;
 }
+
+#main-container {
+    display: flex;
+}
+
 header {
-    height: 80%;
+    height: 50%;
     font-size: 4rem;
     background-color: blue;
     color: white;
     text-align: center;
 }
 
-#search-history {
+#primary-container {
     display: flex;
     flex-direction: row;
 }
 
-.holder{
-    display: flex
+.form-label {
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+#search-history {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 125%;
+}
+
+#search-results {
+    display: flex;
+    flex-direction: column;
+}
+
+.holder {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: 125%;
+    display: flex;
+    flex-direction: column;
 }
 
 #current-weather {
     border: 2px solid black;
+    width: 70%;
+    margin-left: 6rem;
 }
+
+/* #weather.container {
+    display: flex;
+} */

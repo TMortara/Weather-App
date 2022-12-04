@@ -14,41 +14,22 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-    <div>
-        <form>
-            <div class="mb-3">
-                <label for="cityInput" class="form-label">Search for a city:</label>
-                <div class="holder">
-                    <input type="text" class="form-control" id="cityInput" aria-describedby="citySearch">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+        <section id="primary-container">
+            <div id="search-results">
+                <form>
+                    <div class="mb-3">
+                        <label for="cityInput" class="form-label">Search for a city:</label>
+                        <div class="holder">
+                            <input type="text" class="form-control" id="cityInput" aria-describedby="citySearch">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="search-history"></div>
             </div>
-        </form>
-        <div id="search-history"></div>
-        <div id="current-weather"></div>
-        <div>
-            <h2>5-day Forecast</h2>
-        </div>
-        <div id="future-forecast">
-            <div id="day-one">
-                <div id="date-one">date</div>
-                <div id="icon-one">icon</div>
-                <div id="temp-one"></div>
-                <div id="wind-one"></div>
-                <div id="humidity-one"></div>
-            </div>
-            <div id="day-two">
-                <div id="date-one">date</div>
-                <div id="icon-one">icon</div>
-                <div id="temp-one"></div>
-                <div id="wind-one"></div>
-                <div id="humidity-one"></div> 
-            </div>
-            <div id="day-three"></div>
-            <div id="day-four"></div>
-            <div id="day-five"></div>
-        </div>
-    </div>
+            <div id="current-weather"></div>
+        </section>
+    <div id="forecast-container"></div>
     <script src="./assets//js/script.js"></script>
 </body>
 </html>
