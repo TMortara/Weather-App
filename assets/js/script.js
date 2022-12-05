@@ -11,7 +11,7 @@ function show(element) {
 //call OpenWeather API to get lat, lon
 function searchApi(city) {
     console.log(apiKey);
-    var url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+    var url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
     fetch(url).then(function(response){
         console.log(response.status);
         if (response.status !== 200) {
