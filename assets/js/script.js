@@ -1,5 +1,9 @@
 var apiKey = 'c7f3d71450efdca51fea8035a42258bd';
 
+function show(element) {
+    element.style.display = "block";
+}
+
 function searchApi(city) {
     console.log(apiKey);
     var url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
@@ -53,21 +57,23 @@ function getWeather(lat, lon) {
         currentWeatherEl.innerHTML = "";
 
         currentWeatherEl.append(cityNameEl, currentDateEl, iconEl, tempEl, humidityEl, windSpeedEl);
+        show(currentWeatherEl);
     })
 }
-var forecastContainerEl = document.querySelector("#forecast-container");
+var forecastContainerEl = document.querySelector("#forecast-container"); //move to top
+var forecastCardContainerEl = document.querySelector("#forecast-card-container"); //move to top
 
 function renderForecastContainer() {
     
-    var headingEl = document.createElement("div");
-    var headingTextEl = document.createElement("h2");
+    // var headingEl = document.createElement("div");
+    // var headingTextEl = document.createElement("h2");
     
-    headingTextEl.textContent = "5-day Forecast";
-    headingEl.setAttribute("class", "col-12");
-    headingEl.append(headingTextEl);
-    
-    forecastContainerEl.innerHTML = "";
-    forecastContainerEl.append(headingEl);
+    // headingTextEl.textContent = "5-day Forecast";
+    // headingEl.setAttribute("class", "col-12");
+    // headingEl.append(headingTextEl);
+    forecastCardContainerEl.innerHTML = "";
+    show(forecastContainerEl);
+    // forecastContainerEl.append(headingEl);
 }
 
 function renderForecastCard(forecastData) {
@@ -96,9 +102,12 @@ function renderForecastCard(forecastData) {
     forecastWindSpeedEl.textContent = "Wind Speed: " + forecastWindSpeed + " mph";
 
     forecastCardEl.append(forecastDateEl, iconEl, forecastTempEl, forecastHumidityEl, forecastWindSpeedEl);
-    forecastContainerEl.append(forecastCardEl);
+    forecastCardContainerEl.append(forecastCardEl);
+    forecastContainerEl.append(forecastCardContainerEl);
 
 }
+
+
 
 function getForecast(lat, lon) {
     var url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
