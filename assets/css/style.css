@@ -28,9 +28,10 @@ header {
     width: 100%;
 }
 
-hr {
+#line {
     width: 94%;
     margin:0 auto;
+    display: none;
 }
 
 #search-history {

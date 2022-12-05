@@ -1,9 +1,14 @@
 var apiKey = 'c7f3d71450efdca51fea8035a42258bd';
+var horizontalLineEl = document.querySelector("#line");
+var forecastContainerEl = document.querySelector("#forecast-container");
+var forecastCardContainerEl = document.querySelector("#forecast-card-container"); 
 
+//show elements
 function show(element) {
     element.style.display = "block";
 }
 
+//call OpenWeather API to get lat, lon
 function searchApi(city) {
     console.log(apiKey);
     var url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
@@ -20,6 +25,7 @@ function searchApi(city) {
     })
 }
 
+//call OpenWeather API to get current weather for entered city
 function getWeather(lat, lon) {
     var url =`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
     fetch(url)
@@ -60,22 +66,14 @@ function getWeather(lat, lon) {
         show(currentWeatherEl);
     })
 }
-var forecastContainerEl = document.querySelector("#forecast-container"); //move to top
-var forecastCardContainerEl = document.querySelector("#forecast-card-container"); //move to top
 
+//clear and show 5-Day Forecast Container
 function renderForecastContainer() {
-    
-    // var headingEl = document.createElement("div");
-    // var headingTextEl = document.createElement("h2");
-    
-    // headingTextEl.textContent = "5-day Forecast";
-    // headingEl.setAttribute("class", "col-12");
-    // headingEl.append(headingTextEl);
     forecastCardContainerEl.innerHTML = "";
-    show(forecastContainerEl);
-    // forecastContainerEl.append(headingEl);
+    show(forecastContainerEl); 
 }
 
+//setup and render 5-Day Forecast data to forecast cards
 function renderForecastCard(forecastData) {
 
     var forecastCardEl = document.createElement("div");
@@ -104,11 +102,9 @@ function renderForecastCard(forecastData) {
     forecastCardEl.append(forecastDateEl, iconEl, forecastTempEl, forecastHumidityEl, forecastWindSpeedEl);
     forecastCardContainerEl.append(forecastCardEl);
     forecastContainerEl.append(forecastCardContainerEl);
-
 }
 
-
-
+//call OpenWeather API to get 5-Day Forecast data
 function getForecast(lat, lon) {
     var url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
     fetch(url).then(function(respone){
@@ -127,6 +123,7 @@ function getForecast(lat, lon) {
     }) 
 }
 
+//render entered cities to page from local storage
 function renderStorage() {
     var history = JSON.parse(localStorage.getItem('past-searches')) || [];
     console.log(history);
@@ -148,6 +145,7 @@ function renderStorage() {
     }
 }
 
+//save entered cities to local storage
 function saveToStorage(cityName) {
     var history = JSON.parse(localStorage.getItem('past-searches')) || [];
     if (!history.includes(cityName)) {
@@ -158,8 +156,10 @@ function saveToStorage(cityName) {
     }
     localStorage.setItem('past-searches', JSON.stringify(history));
     renderStorage();
+    show(horizontalLineEl);
 }
 
+//submit entered city
 function handleFormSubmit(event) {
     event.preventDefault();
     var cityInput = document.getElementById('cityInput').value.trim();
