@@ -1,8 +1,8 @@
 # Weather Application 
 ## Description
-
+The Weather App will display the current weather and 5-day forecast data for the city entered by the user.  Users will be able to revist the weather data for the last 5 entered cities by selecting the desired city in the search history section. 
 ## Deployed Portfolio
-
+https://tmortara.github.io/Weather-App/
 ## How to use the Weather App
 1. Enter city you would like to view the Current Weather and the 5-Day Forecast.
 2. Click Submit
@@ -37,3 +37,4 @@ None
 ## License
 None
 ## Screenshots
+![tmortara github io_Weather-App_ (1)](https://user-images.githubusercontent.com/107971753/205748375-757fa83e-76dc-418b-a86d-6be54d561b30.png)
